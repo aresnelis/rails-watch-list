@@ -1,2 +1,26 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.container {
+
+  a {
+    text-decoration: none;
+  }
+}
+
+ul {
+  li {
+    font-size: 24px;
+  }
+}
+
+.banner {
+
+  background-color: black;
+  height: 221px;
+  h1 {
+    display: flex;
+    justify-content: center;
+    color: azure;
+  }
+}

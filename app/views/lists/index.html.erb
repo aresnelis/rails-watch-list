@@ -1,7 +1,21 @@
+<div class="banner">
+<h1>Save any kind of movie</h1>
+</div>
+<div class="container">
 <h1> Your Lists </h1>
 
-<% @lists.each do |list| %>
-<li> <%= link_to list.name, list_path(list) %> </li>
-<% end %>
 
-<%= link_to "Create a watchlist!", new_list_path %>
+<ul>
+<% @lists.each do |list| %>
+<li class="mt-1"> <%= link_to list.name, list_path(list) %> <%= link_to "Delete",
+    list_path(list),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-primary" %></li>
+<% end %>
+</ul>
+
+
+<h1>Movies - Top Rated</h1>
+<% @movies.each do |movie| %>
+<li> <%= movie.title %> </li>
+<% end %>
+</div>
