@@ -18,7 +18,8 @@ movies = URI.open(url).read
 movie_list = JSON.parse(movies)
 ten = movie_list['results'][0..10]
 ten.each do |movie|
-  Movie.create(title: movie['title'], overview: movie['overview'], poster_url: movie['poster_path'], rating: movie['vote_average'])
+  url =  "https://image.tmdb.org/t/p/original/" + movie['poster_path']
+  Movie.create(title: movie['title'], overview: movie['overview'], poster_url: url, rating: movie['vote_average'])
 end
 #   puts `Added #{title} to database`
 # end

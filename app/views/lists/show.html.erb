@@ -2,23 +2,26 @@
 
 
 <div class="col">
-<%= link_to "add a bookmark",  new_list_bookmark_path(@list), class: "btn btn-primary" %>
-<%= link_to "Home", root_path, class: "btn btn-primary"%>
+  <%= link_to "add a bookmark",  new_list_bookmark_path(@list), class: "btn btn-primary" %>
+  <%= link_to "Home", root_path, class: "btn btn-primary"%>
 </div>
 
-  <div class="row justify-content-between">
-    <% @list.bookmarks.each do |bookmark| %>
-      <div class="card mb-3 col-4" style="width: 18rem; box-shadow: 2px 2px 6px #888888;">
-        <img src="<%= bookmark.movie.poster_url %>" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title"> <%= bookmark.movie.title %> - <%= bookmark.movie.rating %> ⭐</h5>
-              <p class="card-text"> <%= bookmark.movie.overview %></p>
-                <%= link_to "Delete",
-                list_bookmark_path(@list, bookmark),
-                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-                %>
-          </div>
+<div class="container">
+
+    <div class="d-flex justify-content-evenly">
+          <% @list.bookmarks.each do |bookmark| %>
+            <div class="card mb-3 col-4" style="width: 18rem; box-shadow: 2px 2px 6px #888888;">
+              <img src="<%= bookmark.movie.poster_url %>" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title"> <%= bookmark.movie.title %> - <%= bookmark.movie.rating %> ⭐</h5>
+                    <p class="card-text"> <%= bookmark.movie.overview %></p>
+                      <%= link_to "Delete",
+                      list_bookmark_path(@list, bookmark),
+                      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+                      %>
+                </div>
+            </div>
+          <% end %>
       </div>
-    <% end %>
-  </div>
+
 </div>
